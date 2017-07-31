@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+from plone import api
 from plone.formwidget.geolocation.interfaces import IGeolocationField
 from plone.formwidget.geolocation.interfaces import IGeolocationWidget
 from z3c.form.browser.text import TextWidget
@@ -19,16 +22,10 @@ class GeolocationWidget(TextWidget):
             self.value = self._default_loc()
 
     def _default_loc(self):
-        config = queryMultiAdapter((self.context, self.request),
-                                   name="maps_configuration", default=None)
-        default = ret = (0.0, 0.0)
-        if config and hasattr(config, 'default_location'):
-            ret = config.default_location
-            if isinstance(ret, basestring):
-                ret = ret.split(',')
-        if len(ret) != 2:
-            return default
-        return (float(ret[0]), float(ret[1]))
+        default_loc = api.portal.get_registry_record(
+            'plone.formwidget.geolocation.default_location'
+        )
+        return (default_loc[0], default_loc[1], default_loc[2])
 
 
 @implementer(IFieldWidget)

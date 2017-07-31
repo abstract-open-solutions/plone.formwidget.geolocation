@@ -1,13 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="plone.formwidget.geolocation"
       tal:omit-tag="">
-  <div class="geolocation_wrapper"
+  <div class="geolocation_wrapper view"
       tal:define="lat python:view.value[0];
-                  lng python:view.value[1]"
+                  lng python:view.value[1];
+                  zoom python:view.value[2];"
       tal:condition="python:lat and lng">
+    <div class="geolocation-data">
+      <div class="lat">
+        <label i18n:translate="">Latitude</label>
+        <span tal:replace="lat" />
+      </div>
+      <div class="lng">
+        <label i18n:translate="">Longitude</label>
+        <span tal:replace="lng" />
+      </div>
+    </div>
     <div class="geolocation"
         tal:attributes="data-latitude lat;
-                        data-longitude lng"/>
-    <div class="geomap"></div>
+                        data-longitude lng;
+                        data-zoom zoom;" />
   </div>
 </html>

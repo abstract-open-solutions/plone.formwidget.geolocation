@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+from plone import api
 from plone.formwidget.geolocation.geolocation import Geolocation
 from plone.formwidget.geolocation.interfaces import IGeolocation
 from plone.formwidget.geolocation.interfaces import IGeolocationField
@@ -13,13 +16,13 @@ class GeolocationConverter(BaseDataConverter):
 
     def toWidgetValue(self, value):
         if value:
-            return (value.latitude, value.longitude)
+            return (value.latitude, value.longitude, value.zoom)
 
     def toFieldValue(self, value):
-        if value is None or value == ('0', '0'):
+        if value is None or value == ('0', '0', '0'):
             return self.field.missing_value
 
         if IGeolocation.providedBy(value):
             return value
 
-        return Geolocation(value[0], value[1])
+        return Geolocation(value[0], value[1], value[2])

@@ -1,0 +1,2 @@
+define("/Users/keul/buildout/test5.1/src/plone.formwidget.geolocation/plone/formwidget/geolocation/browser/static/plone.formwidget.geolocation.js",["jquery","http://maps.google.com/maps/api/js?v=3&sensor=false"],function(a){console.log(a,GMaps)}),require.config({paths:{"plone.formwidget.geolocation":"plone.formwidget.geolocation"},shim:{gmaps:{deps:["plone.formwidget.geolocation"],exports:"GMaps"}}});
+//# sourceMappingURL=compiled-plone-formwidget-geolocation.js.map

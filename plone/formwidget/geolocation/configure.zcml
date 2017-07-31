@@ -2,7 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:z3c="http://namespaces.zope.org/z3c"
     xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone.formwidget.geolocation">
+
+  <include package=".browser" />
 
   <adapter factory=".widget.GeolocationFieldWidget" />
   <adapter factory=".converter.GeolocationConverter" />
@@ -25,6 +28,14 @@
       zcml:condition="installed plone.supermodel"
       component=".supermodel.GeolocationHandler"
       name="plone.formwidget.geolocation.GeolocationField"
+      />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="plone.formwidget.geolocation"
+      directory="profiles/default"
+      description="Installs plone.formwidget.geolocation"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
 </configure>

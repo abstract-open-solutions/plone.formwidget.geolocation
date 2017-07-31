@@ -1,0 +1,11 @@
+.infowindow-content {
+  display: none;
+}
+
+.geolocation .infowindow-content {
+  display: inline;
+}
+
+.pac-container {
+  z-index: 90000;
+}

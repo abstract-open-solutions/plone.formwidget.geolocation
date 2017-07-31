@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.2.1'
+version = '1.2.2'
 
 setup(
     name='plone.formwidget.geolocation',
@@ -13,7 +13,10 @@ setup(
     ),
     classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 5.0",
+        "Framework :: Plone :: 5.1",
         "Programming Language :: Python",
+        "Programming Language :: JavaScript",
     ],
     keywords='',
     author='David Glick',
@@ -27,6 +30,7 @@ setup(
     install_requires=[
         'setuptools',
         'z3c.form',
+        'plone.api',
     ],
     entry_points="""
       # -*- Entry points: -*-
