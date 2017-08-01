@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.2.2 (Unreleased)
-------------------
+1.2.2.1 (Unreleased)
+--------------------
 
-- Nothing changed yet
+- Start of the unibo fork
+- Plone 5 compatible, but using old school Google Maps integration
 
 1.2.1 (2015-03-04)
 ------------------

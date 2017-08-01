@@ -10,4 +10,11 @@
       directory="static"
       />
 
+  <browser:page
+      name="load-maps-api-key"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".api_key.GrabApiKeyView"
+      permission="zope.Public"
+      />
+
 </configure>

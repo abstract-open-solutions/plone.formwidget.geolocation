@@ -13,6 +13,13 @@
     </value>
   </record>
 
+  <record name="plone.formwidget.geolocation.api_key">
+    <field type="plone.registry.field.TextLine">
+      <title>Google maps API key</title>
+    </field>
+    <value></value>
+  </record>
+
   <!-- resource registry -->
   <records prefix="plone.resources/async" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="js">++resource++plone.formwidget.geolocation/async.js</value>

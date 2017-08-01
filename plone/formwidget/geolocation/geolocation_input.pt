@@ -5,6 +5,7 @@
   <div class="geolocation_wrapper edit">
     <script type="text/javascript">
     $(document).ready(function() {
+        // try to trigger again (just in case field is in overlay)
         $('.geolocation_wrapper.edit').trigger('geowidget:init');
     })
     </script>
