@@ -82,12 +82,14 @@ require(['jquery'], function($) {
           var zoom = parseInt(geolocation.data('zoom'), 10);
         }
 
-        var map = new google.maps.Map(geolocation.get(0));
+        var map = new google.maps.Map(
+          geolocation.get(0)
+        );
         setInitialLocation(lat, lng, zoom, map);
 
         geolocation
           .addClass('mapActive')
-          .css({ width: '100%', height: '400px' });
+          .css({ width: '100%', height: '480px' });
         var initialPosition = new google.maps.LatLng(lat, lng);
         var marker = new google.maps.Marker({
           map: map,
@@ -190,6 +192,9 @@ require(['jquery'], function($) {
             );
           });
         }
+
+        // Needed inside overlay
+        google.maps.event.trigger(map, 'resize');
       });
 
       // this will init maps for fields already on the page

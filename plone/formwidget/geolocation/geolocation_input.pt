@@ -5,9 +5,20 @@
   <div class="geolocation_wrapper edit">
     <script type="text/javascript">
     $(document).ready(function() {
-        // try to trigger again (just in case field is in overlay)
-        $('.geolocation_wrapper.edit').trigger('geowidget:init');
-    })
+      // try to trigger again (just in case field is in overlay)
+      // BBB: ugly, but can't find a way to lister for overlay load
+      var loader = $('.plone-loader', document);
+      if (loader.length > 0) {
+        function checkLoaderStatus() {
+          if (loader.is(':hidden')) {
+            $('.geolocation_wrapper.edit').trigger('geowidget:init');
+          } else {
+            setTimeout(checkLoaderStatus, 100);
+          }
+        }
+        checkLoaderStatus();
+      }
+    });
     </script>
     <input class="map-search-input" type="text"
            placeholder="Search for a place" style="display:none"
