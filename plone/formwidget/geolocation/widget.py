@@ -25,7 +25,7 @@ class GeolocationWidget(TextWidget):
         default_loc = api.portal.get_registry_record(
             'plone.formwidget.geolocation.default_location'
         )
-        return (default_loc[0], default_loc[1], default_loc[2])
+        return (default_loc['lat'], default_loc['lng'], default_loc['zoom'])
 
 
 @implementer(IFieldWidget)

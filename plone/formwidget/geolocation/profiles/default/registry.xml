@@ -1,18 +1,22 @@
 <registry>
 
   <record name="plone.formwidget.geolocation.default_location">
-    <field type="plone.registry.field.Tuple">
+    <field type="plone.registry.field.Dict">
       <title>Default location</title>
-      <value_type type="plone.registry.field.Float" />
+      <key_type type="plone.registry.field.TextLine" />
+      <value_type type="plone.registry.field.TextLine" />
     </field>
     <value>
-      <element>44.4968969</element>
-      <element>11.3480349</element>
-      <element>12</element>
+      <element key="lat">44.4968969</element>
+      <element key="lng">11.3480349</element>
+      <element key="zoom">12</element>
     </value>
   </record>
 
   <!-- resource registry -->
+  <records prefix="plone.resources/async" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++plone.formwidget.geolocation/async.js</value>
+  </records>
   <records prefix="plone.resources/plone.formwidget.geolocation" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="js">++resource++plone.formwidget.geolocation/plone.formwidget.geolocation.js</value>
     <value key="css">
@@ -28,6 +32,7 @@
       <element>plone.formwidget.geolocation</element>
     </value>
     <value key="jscompilation">++resource++plone.formwidget.geolocation/compiled-plone-formwidget-geolocation.js</value>
+    <value key="csscompilation">++resource++plone.formwidget.geolocation/compiled-plone-formwidget-geolocation.css</value>
     <value key="compile">True</value>
     <value key="depends">plone</value>
     <value key="merge_with">default</value>

@@ -11,10 +11,7 @@
     <input class="map-search-input" type="text"
            placeholder="Search for a place" style="display:none"
            i18n:attributes="placeholder"/>
-    <div class="geolocation"
-        tal:attributes="data-latitude python:view.value[0];
-                        data-longitude python:view.value[1];
-                        data-zoom python:view.value[2];" />
+    <div class="geolocation"></div>
     <input id="" name="" class="" style="" value="" type="text"
         tal:attributes="id string:${view/id}_latitude;
                         name string:${view/name}:tuple;
@@ -34,9 +31,9 @@
                         class string:${view/klass} zoom;
                         value python:view.value[2]" />
     <div class="infowindow-content">
-      <img src="" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
+      <img src="" width="16" height="16" class="place-icon">
+      <span class="place-name title"></span><br>
+      <span class="place-address"></span>
     </div>
   </div>
 </html>
