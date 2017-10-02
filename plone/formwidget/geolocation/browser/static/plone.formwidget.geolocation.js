@@ -8,7 +8,7 @@ require(['jquery'], function($) {
   var portal_url = $('body').data('portalUrl');
   $.getJSON(portal_url + '/@@load-maps-api-key').then(function(data) {
     require([
-      'async!http://maps.google.com/maps/api/js?v=3&libraries=places&key=' +
+      'async!https://maps.google.com/maps/api/js?v=3&libraries=places&key=' +
         data.key
     ], function() {
       function disableFields(fields) {
