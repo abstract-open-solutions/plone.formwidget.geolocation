@@ -8,7 +8,7 @@ require(['jquery'], function($) {
   var portal_url = $('body').data('portalUrl');
   $.getJSON(portal_url + '/@@load-maps-api-key').then(function(data) {
     require([
-      'async!http://maps.google.com/maps/api/js?v=3&libraries=places&key=' +
+      'async!https://maps.google.com/maps/api/js?v=3&libraries=places&key=' +
         data.key
     ], function() {
       function disableFields(fields) {
@@ -82,12 +82,14 @@ require(['jquery'], function($) {
           var zoom = parseInt(geolocation.data('zoom'), 10);
         }
 
-        var map = new google.maps.Map(geolocation.get(0));
+        var map = new google.maps.Map(
+          geolocation.get(0)
+        );
         setInitialLocation(lat, lng, zoom, map);
 
         geolocation
           .addClass('mapActive')
-          .css({ width: '100%', height: '400px' });
+          .css({ width: '100%', height: '480px' });
         var initialPosition = new google.maps.LatLng(lat, lng);
         var marker = new google.maps.Marker({
           map: map,
@@ -190,9 +192,12 @@ require(['jquery'], function($) {
             );
           });
         }
+
+        // Needed inside overlay
+        google.maps.event.trigger(map, 'resize');
       });
 
-      // in case of late loading
+      // this will init maps for fields already on the page
       $('.geolocation_wrapper.edit,.geolocation_wrapper.view').trigger(
         'geowidget:init'
       );
@@ -200,5 +205,5 @@ require(['jquery'], function($) {
   });
 });
 
-define("/Users/keul/buildout/test5.1/src/plone.formwidget.geolocation/plone/formwidget/geolocation/browser/static/plone.formwidget.geolocation.js", function(){});
+define("/Users/keul/projects/unibo-cds/src/plone.formwidget.geolocation/plone/formwidget/geolocation/browser/static/plone.formwidget.geolocation.js", function(){});
 
